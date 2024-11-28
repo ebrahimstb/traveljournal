@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/Header'
+import Entry from './components/Entry';
+import  data  from "./data";
 function App() {
+  const travelData= data.map((travels) => {
+      return (
+          <Entry 
+            key= { travels.id}
+            entry ={ travels}
+            // instead of doing the above you can just do {...enrty } and have those props.entry in the entry jsx deleted and it would work just fine  
+          />
+      ) 
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Header/>
+        <main>
+            {travelData}
+        </main>
+    </>
   );
 }
 
